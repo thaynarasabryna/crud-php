@@ -1,4 +1,6 @@
 <?php
+    session_start();
+
     include "conexao.php";
 
     $nome = $_POST['nome'];
@@ -9,14 +11,17 @@
 
     $sql = "INSERT INTO `pessoas`(`nome`, `endereco`, `telefone`, `email`, `data_nascimento`) VALUES ('$nome', '$endereco', '$telefone', '$email', '$data_nascimento')";
 
-    echo '<pre>';
-    print_r();
-    die;
-
     if (mysqli_query($conn, $sql)) {
-        header('Location: cadastrar.php');
-        mensagem("$nome cadastrado com sucesso!", 'success');
+        $_SESSION['alerta'] = "$nome cadastrado com sucesso!";
+        $alerta_cadastro = 'success';
     } else {
-        mensagem("$nome NAO foi cadastrado.", 'danger');
-    }  
+        $_SESSION['alerta'] = "$nome NÃO foi cadastrado.";
+        $alerta_cadastro = 'danger';
+    }
+    
+    header('Location: cadastrar.php');
+    exit;
+
+
+    $conn->close();
 ?>
