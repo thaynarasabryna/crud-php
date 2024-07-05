@@ -9,9 +9,9 @@
 
     $sql = "INSERT INTO `pessoas`(`nome`, `endereco`, `telefone`, `email`, `data_nascimento`) VALUES ('$nome', '$endereco', '$telefone', '$email', '$data_nascimento')";
 
-    // echo "<pre>";
-    // var_dump(mysqli_query($conn, $sql));
-    // die();
+    echo '<pre>';
+    print_r();
+    die;
 
     if (mysqli_query($conn, $sql)) {
         header('Location: cadastrar.php');
@@ -20,4 +20,3 @@
         mensagem("$nome NAO foi cadastrado.", 'danger');
     }  
 ?>
-<a href="index.php" class="btn btn-info text-white">Voltar</a>
