@@ -7,7 +7,6 @@
     <title>Pesquisar</title>
 </head>
 <body>
-
     <?php
         $pesquisa = $_POST['busca'] ?? '';
         include "conexao.php";
