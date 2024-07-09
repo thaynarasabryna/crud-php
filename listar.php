@@ -15,29 +15,32 @@
         $dados = mysqli_query($conn, $sql);
     ?>
 
+    
+
     <div class="container">
         <div class="row">
             <div class="col mt-5">
                 <h1>Pesquisar</h1>
                 <nav class="navbar navbar-light bg-light">
-                    <form class="form-inline d-flex" action="listar.php" method="post">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Nome" aria-label="Pesquisar">
+                    <form class="form-inline d-flex" action="listar.php" method="POST">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Nome" aria-label="Search" name="busca" autofocus>
                         <button class="btn btn-outline-success my-2 my-sm-0 m-2" type="submit">Pesquisar</button>
                     </form>
                 </nav>
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Endereço</th>
-                            <th scope="col">Telefone</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Data de Nascimento</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Endereço</th>
+                        <th scope="col">Telefone</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Data de Nascimento</th>
                         </tr>
                     </thead>
                     <tbody>
                     <?php
-                        while ($linha = mysqli_fecth_assoc($dados)) {
+                        while($linha = mysqli_fetch_assoc($dados)) {
+                            $cod_pessoa = $linha['cod_pessoa'];
                             $nome = $linha['nome'];
                             $endereco = $linha['endereco'];
                             $telefone = $linha['telefone'];
@@ -56,7 +59,7 @@
                         
                     </tbody>
                 </table>
-                <a href="index.php" class="btn btn-info text-white">Voltar para o Início</a>
+                <a href="index.php" class="btn btn-primary text-white">Voltar para o Início</a>
             </div>
         </div>
     </div>

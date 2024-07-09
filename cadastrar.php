@@ -22,7 +22,7 @@
                     </div>
                     <div class="form-group mb-3">
                         <label class="mb-2" for="nome">Endereço</label>
-                        <input type="text" class="form-control" if="cep" name="cep">
+                        <input type="text" class="form-control" if="endereco" name="endereco">
                     </div>
                     <div class="form-group mb-3">
                         <label class="mb-2" for="nome">Telefone</label>
