@@ -2,7 +2,7 @@
 $server = "localhost";
 $user = "root";
 $pass = "root";
-$bd = "estudo";
+$bd = "gerenciamento_usuarios";
 
 // Conectando ao banco de dados usando mysqli
 $conn = mysqli_connect($server, $user, $pass, $bd);
